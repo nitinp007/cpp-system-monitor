@@ -17,7 +17,9 @@ void ProcessContainer::refreshList(){
     std::vector<std::string> pidList = ProcessParser::getPidList();
     this->_list.clear();
     for(int i=0;i<pidList.size();i++){
+        //std::cout<<"processing pid is:"<<pidList[i]<<std::endl;
         Process proc(pidList[i]);
+        //std::cout<<"Processing pid is done for: "<<pidList[i]<<std::endl;
         this->_list.push_back(proc);
     }
 }
