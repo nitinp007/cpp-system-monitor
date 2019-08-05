@@ -40,7 +40,7 @@ private:
     static int getNumberOfRunningProcesses();
     static string getOSName();
     static std::string PrintCpuStats(std::vector<std::string> values1, std::vector<std::string>values2);
-    //static bool isPidExisting(string pid);
+    static bool isPidExisting(string pid);
   
     static int getNumOfCores();
     static float getSysActiveCpuTime(std::vector<std::string> values);
@@ -418,3 +418,16 @@ std::vector<std::string> ProcessParser::getPidList() {
 
 }
 
+bool ProcessParser::isPidExisting(string pid){
+    bool result = false;
+    vector<string>_list = ProcessParser::getPidList();
+
+    for (int i=0; i<_list.size(); i++){
+        if(pid == _list[i]){
+            result = true;
+            break;
+        }
+    }
+
+    return result;  
+}
